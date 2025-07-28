@@ -1,0 +1,20 @@
+
+<%= simple_form_for(@movie) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <div class="form-group d-flex justify-content-between">
+      <%= f.input :director_name, wrapper_html: { class: "col-8" } %>
+      <%= f.input :rating, input_html: { min: 0, max: 5, step: 0.1 }, wrapper_html: { class: "col-3" } %>
+    </div>
+  </div>
+
+  <div class="form-actions d-flex justify-content-end align-items-center">
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <div class="ms-4">
+      <%= link_to "Back to movies", movies_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+<% end %>

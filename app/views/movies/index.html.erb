@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Movies" %>
+<div class="text-center">
+  <h1>Movies</h1>
+  <p class="lead">A collection of my favorite movies</p>
+</div>
+
+<% if movies_exist? %>
+<div id="movies">
+  <% @movies.each do |movie| %>
+    <%= render movie %>
+  <% end %>
+</div>
+<% else %>
+  <p>There are no movies in the database yet.</p>
+<% end %>
