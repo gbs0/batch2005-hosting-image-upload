@@ -14,5 +14,4 @@ Rails.application.routes.draw do
   # root "posts#index"
   root to: "movies#index"
   resources :movies, except: %i[index show]
-
 end
