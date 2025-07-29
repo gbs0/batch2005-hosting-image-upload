@@ -9,6 +9,7 @@
       <%= f.input :director_name, wrapper_html: { class: "col-8" } %>
       <%= f.input :rating, input_html: { min: 0, max: 5, step: 0.1 }, wrapper_html: { class: "col-3" } %>
     </div>
+    <%= f.input :poster, as: :file, input_html: { multiple: true } %>
   </div>
 
   <div class="form-actions d-flex justify-content-end align-items-center">

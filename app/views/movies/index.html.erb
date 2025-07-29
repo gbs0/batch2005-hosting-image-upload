@@ -1,5 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
+<%= cl_image_tag("3zs8ewc95ju6zhs8aasyyds4wwpr",
+      width: 400, height: 300, crop: :fill) %>
+
+<%= cl_image_tag("woman-blackdress-stairs.png", transformation: [
+  {gravity: "face", height: 200, width: 200, crop: "thumb"},
+  {radius: "max"},
+  {fetch_format: "auto"}
+  ]) %>
+
 <% content_for :title, "Movies" %>
 <div class="text-center">
   <h1>Movies</h1>

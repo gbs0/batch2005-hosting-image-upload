@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   root to: "movies#index"
   resources :movies, except: %i[index show]
+
+  get "/movies/:id/remove_poster", to: "movies#remove_poster", as: :remove_poster
 end

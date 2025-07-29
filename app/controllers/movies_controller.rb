@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: %i[ show edit update destroy ]
+  before_action :set_movie, only: %i[ show edit update destroy remove_poster ]
 
   # GET /movies
   def index
@@ -45,6 +45,14 @@ class MoviesController < ApplicationController
     redirect_to movies_url, notice: "Movie was successfully destroyed.", status: :see_other
   end
 
+  def remove_poster
+    if @movie.poster.attached?
+      @movie.poster.purge
+    end
+
+    redirect_to movies_url, notice: "Movie poster was successfully removed."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie
@@ -53,6 +61,6 @@ class MoviesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movie_params
-      params.require(:movie).permit(:title, :rating, :director_name)
+      params.require(:movie).permit(:title, :rating, :director_name, poster: [])
     end
 end
